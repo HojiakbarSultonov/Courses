@@ -1,22 +1,25 @@
-import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar'
+import { SidebarProvider } from '@/components/ui/sidebar'
 import React, { ReactNode } from 'react'
 import AppSidebar from './_components/App.sidebar'
+import AppNavbar from './_components/App.navbar'
 
 
 interface LayoutProps {
-    children: ReactNode
+  children: ReactNode
 }
 
 function Layout({ children }: LayoutProps) {
-    return (
+  return (
     <SidebarProvider>
       <AppSidebar />
-      <main>
-        <SidebarTrigger />
-        {children}
+      <main className='w-full lg:mr-2'>
+        <AppNavbar />
+        <div className='mt-2 max-w-6xl mx-auto mb-12'>
+          {children}
+        </div>
       </main>
     </SidebarProvider>
-    )
+  )
 }
 
 export default Layout

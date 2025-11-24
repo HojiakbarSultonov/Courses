@@ -1,13 +1,14 @@
 'use client'
+import { Button } from '@/components/ui/button'
 import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '@/components/ui/sidebar'
-import { Braces, Bug, CircleGauge, GitCompareArrows, Home, Instagram, Rss, Send, Terminal, UserPen } from 'lucide-react'
+import { Braces, Bug, CircleGauge, GitCompareArrows, Github, Home, Instagram, Linkedin, Rss, Send, Terminal, UserPen, Youtube } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 function AppSidebar() {
   const pathName = usePathname()
   return (
-    <Sidebar>
+    <Sidebar variant='floating' collapsible='icon'>
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupLabel>Pages</SidebarGroupLabel>
@@ -48,7 +49,17 @@ function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup >
       </SidebarContent>
-      <SidebarFooter />
+      <SidebarFooter >
+        <SidebarMenu className='flex items-center border-t group-data-[collapsible=icon]:hidden'>
+          <div className="flex items-center gap-x-2 pt-2">
+            {social_items.map(item => (
+              <Button key={item.title} variant={'ghost'} className='size-7' onClick={() => window.open(item.href, '_blank')}>
+                <item.icon />
+              </Button>
+            ))}
+          </div>
+        </SidebarMenu>
+      </SidebarFooter>
     </Sidebar>
   )
 }
@@ -116,7 +127,17 @@ const social_items = [
   },
   {
     title: 'LinkdIn',
-    href: 'https://www.instagram.com/hojiakbarrs/',
-    icon: Instagram
+    href: 'https://www.linkedin.com/in/hojiakbar-sultonov/',
+    icon: Linkedin
+  },
+  {
+    title: 'Youtube',
+    href: 'https://www.youtube.com/',
+    icon: Youtube
+  },
+  {
+    title: 'Github',
+    href: 'https://github.com/HojiakbarSultonov',
+    icon: Github
   },
 ]
