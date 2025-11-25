@@ -31,7 +31,7 @@ function HomePage() {
           ))}
         </div>
       </div>
-      <div className="mt-3">
+      <div className="mt-4">
         <Button asChild variant={'link'} className='text-xl'><Link href={'/projects'} >Projects</Link></Button>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mt-4">
           {newProjects.map(project => (
